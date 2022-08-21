@@ -1,0 +1,92 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    
+    static Scanner in = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        
+        int n = in.nextInt();
+        
+        double[] arr = new double[n];
+        
+        inputArr(arr);
+        sort(arr);
+        
+        System.out.println(mean(arr));
+        System.out.println(median(arr));
+        System.out.println(mode(arr));
+        
+        
+    }
+    
+    static void inputArr(double[] yourArray){
+        for(int i = 0; i < yourArray.length; i++){
+            yourArray[i] = in.nextDouble();
+        }
+    }
+    
+    static void sort(double[] yourArray){
+        for(int i = 0; i < yourArray.length; i++){
+            for(int j = 0; j < yourArray.length - i - 1; j++){
+                if(yourArray[j] > yourArray[j+1]){
+                    double temp = yourArray[j];
+                    yourArray[j] = yourArray[j+1];
+                    yourArray[j+1] = temp;
+                }
+            }
+        }
+    }
+    
+    static double mean(double[] yourArray){
+        double sum = 0;
+        
+        for(int i = 0; i < yourArray.length; i++){
+            sum += yourArray[i];
+        }
+        
+        double mean = sum / yourArray.length;
+        return mean;
+    }
+    
+    static double median(double[] yourArray){
+        double median;
+        
+        if(yourArray.length % 2 == 1)
+        median = yourArray[yourArray.length/2];
+        else
+        median = (yourArray[yourArray.length/2] + yourArray[yourArray.length/2 - 1]) / 2;
+        
+        return median;
+    }
+    
+    static double mode(double[] yourArray){
+        double maxValue = -1.0d;
+        double maxCount = 0;
+        
+    for (int i = 0; i < yourArray.length; i++) {
+        double currentValue = yourArray[i];
+        double currentCount = 1;
+        
+        for (int j = i + 1; j < yourArray.length; j++) {
+            if (yourArray[i] == yourArray[j]){
+                ++currentCount;
+            } 
+        }
+        
+        if (currentCount > maxCount){
+            maxCount = currentCount;
+            maxValue = currentValue;
+        } else if (currentCount == maxCount){
+            maxValue = yourArray[0];
+        }
+        
+        }
+        
+        return maxValue;
+}
+}

@@ -1,0 +1,6 @@
+Qolandar|100000.0|Bantuan Untuk Anak Yatim
+Qolandar|1000000.0|Bantu Anak Jalanan
+Admin|10000.0|Bantu Anak Jalanan
+Admin|10000.0|Bantuan Untuk Anak Yatim
+Admin|10000.0|Bantuan Untuk Anak Yatim
+q|10000.0|Bantu Anak Jalanan

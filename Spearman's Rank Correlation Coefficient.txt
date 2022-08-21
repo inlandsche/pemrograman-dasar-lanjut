@@ -1,0 +1,97 @@
+SPEARMAN'S RANK CORRELATION COEFFICIENT
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    
+    static Scanner in = new Scanner(System.in);
+    
+    public static void main(String[] args) {
+       int n = in.nextInt(); 
+        
+       double[] x = new double[n];
+       double[] y = new double[n];
+
+       inputArray(x);
+       inputArray(y);
+       double[] copyX = x.clone();
+       double[] copyY = y.clone();
+       
+       sort(x);
+       sort(y);
+       double[] a = x.clone();
+       double[] b = y.clone();
+       
+       double[] rX = new double[x.length];
+       double[] rY = new double[y.length];
+       
+       for(int i = 0; i < x.length; i++){
+           for(int j = 0; j < x.length; j++){
+               if(copyX[i] == a[j]){
+                   rX[i] = j + 1;
+               }
+           }
+       }
+       
+       for(int i = 0; i < x.length; i++){
+           for(int j = 0; j < x.length; j++){
+               if(copyY[i] == b[j]){
+                   rY[i] = j + 1;
+               }
+           }
+       }
+       
+    //    System.out.println(Arrays.toString(rX));
+    //    System.out.println(Arrays.toString(rY));
+       
+       System.out.println(formula(rX,rY));
+
+    }
+    
+    static void inputArray(double[] array){
+        for(int i = 0; i < array.length; i++){
+            array[i] = in.nextDouble();
+        }
+    }
+    
+    static void sort(double[] x){
+        for(int i = 0; i < x.length; i++){
+           for(int j = 0; j < x.length - i - 1; j++){
+               if(x[j] > x[j+1]){
+                   double temp = x[j];
+                   x[j] = x[j+1];
+                   x[j+1] = temp;
+               }
+           } 
+        }
+    }
+    
+    static double formula(double[] array1, double[] array2){
+        double[] di = new double[array1.length];
+        double[] diSquare = new double[di.length];
+        
+        for(int i = 0; i < array1.length; i++){
+            di[i] = array1[i] - array2[i];
+        }
+        
+        for(int i = 0; i < di.length; i++){
+            diSquare[i] = Math.pow(di[i], 2);
+        }
+        
+        double diSquareSum = 0;
+        for(int i = 0; i < diSquare.length; i++){
+            diSquareSum = diSquareSum + diSquare[i];
+        }
+        
+        double form = 6 * diSquareSum;
+        double ula = array1.length*((array1.length*array1.length) - 1);
+        
+        double formula = 1 - (form/ula);
+        return formula;
+    }
+    
+}

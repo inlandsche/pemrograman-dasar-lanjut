@@ -1,0 +1,43 @@
+SEARCH INDEX AFTER SORT
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       int[] a = {10, 5, 6, 2, 9, 3, 7};
+       System.out.println(Arrays.toString(a));
+       int[] ca = a.clone();
+       
+       sort(a);
+       int[] b = a.clone();
+       
+       int[] idx = new int[a.length];
+       
+       for(int i = 0; i < a.length; i++){
+           for(int j = 0; j < a.length; j++){
+               if(ca[i] == b[j]){
+                   idx[i] = j + 1;
+               }
+           }
+       }
+       
+       System.out.println(Arrays.toString(idx));
+    }
+    
+    static void sort(int[] x){
+        for(int i = 0; i < x.length; i++){
+           for(int j = 0; j < x.length - i - 1; j++){
+               if(x[j] > x[j+1]){
+                   int temp = x[j];
+                   x[j] = x[j+1];
+                   x[j+1] = temp;
+               }
+           } 
+        }
+    }
+}

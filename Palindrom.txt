@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        String C = "";
+        
+        for (int i = A.length(); i > 0; i--){
+            String B = A.substring(i-1, i);
+            
+            C = C + B; 
+        }
+        
+        if (A.equals(C)) System.out.print("Yes");
+        else System.out.print("No");
+    }
+}
+
+
+

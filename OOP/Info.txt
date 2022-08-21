@@ -1,0 +1,7 @@
+coba,cobaba,cobibi
+Qolandar Annuri,qolqol,loqloq
+Dumyawan,testing,test
+Qolandar,qolandar,annuri
+Admin,admin,admin
+q,q,q
+Qolandar,a,a

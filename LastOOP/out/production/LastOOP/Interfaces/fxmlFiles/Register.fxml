@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaces.Controller.Register">
+   <children>
+      <Label layoutX="224.0" layoutY="47.0" text="Registrasi">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="125.0" text="Nama" />
+      <Label layoutX="92.0" layoutY="168.0" text="Username" />
+      <Label layoutX="93.0" layoutY="212.0" text="Password" />
+      <TextField fx:id="nama" layoutX="168.0" layoutY="121.0" prefHeight="25.0" prefWidth="278.0" />
+      <TextField fx:id="username" layoutX="168.0" layoutY="164.0" prefHeight="25.0" prefWidth="278.0" />
+      <PasswordField fx:id="password" layoutX="168.0" layoutY="208.0" prefHeight="25.0" prefWidth="278.0" />
+      <Button layoutX="270.0" layoutY="277.0" mnemonicParsing="false" onAction="#userRegister" text="Register" />
+   </children>
+</AnchorPane>

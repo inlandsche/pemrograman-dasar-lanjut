@@ -1,0 +1,72 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    
+    static Scanner in = new Scanner(System.in);
+
+    public static void main(String[] args) {
+       
+       int n = in.nextInt();
+       
+       int [] arr = new int[n];
+       
+       inputArr(arr);
+       sort(arr);
+       
+       //System.out.println(Arrays.toString(arr));
+       
+       if(arr.length % 2 == 1){
+            int [] left = Arrays.copyOfRange(arr, 0, (arr.length/2));
+            int [] right = Arrays.copyOfRange(arr, (arr.length/2 + 1), arr.length);
+            
+            System.out.println(median(left));
+            System.out.println(median(arr));
+            System.out.println(median(right));
+       } 
+       else {
+            int [] left = Arrays.copyOfRange(arr, 0, (arr.length/2));
+            int [] right = Arrays.copyOfRange(arr, (arr.length/2), arr.length);
+            
+            System.out.println(median(left));
+            System.out.println(median(arr));
+            System.out.println(median(right));
+       }
+       
+       
+    }
+    
+    static void inputArr(int[] yourArray){
+        for(int i = 0; i < yourArray.length; i++){
+            yourArray[i] = in.nextInt();
+        }
+    }
+    
+    static void sort(int[] yourArray){
+        for(int i = 0; i < yourArray.length; i++){
+            for(int j = 0; j < yourArray.length - i - 1; j++){
+                if(yourArray[j] > yourArray[j+1]){
+                    int temp = yourArray[j];
+                    yourArray[j] = yourArray[j+1];
+                    yourArray[j+1] = temp;
+                }
+            }
+        }
+    }
+    
+    static int median(int[] yourArray){
+        int median = 0;
+        
+        if(yourArray.length % 2 == 1) 
+        median = yourArray[yourArray.length/2];
+        else if(yourArray.length % 2 == 0)
+        median = (yourArray[yourArray.length/2]+yourArray[(yourArray.length/2) - 1])/2;
+        
+        return median; 
+    }
+    
+    
+}
